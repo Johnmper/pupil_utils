@@ -1,0 +1,13 @@
+fixation_buffer_size: 256
+minimum_fixation_duration: 1.0
+dispersion_threshold: 0.2
+confidence_threshold: 0.6
+
+minimum_blink_duration: 0.02
+maximum_blink_duration: 0.35
+minimum_double_blink_wait: 0.01
+maximum_double_blink_wait: 0.5
+
+shade_window_size: 10
+shade_threshold: 0.15
+shade_lowpass: 0.4

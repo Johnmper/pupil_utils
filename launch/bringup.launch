@@ -1,0 +1,25 @@
+<launch>
+    # Parameters for kinova_driver, wont actual be needed since this will be a stripped down version for j2n6s300 only
+    <arg name="robot_name"    default="j2n6s300" />
+    <arg name="robot_type"    default="j2n6s300" />
+    <arg name="robot_serial"  default="not_set" />
+
+    # Load Kinova_Driver Node, robot_parameters in yaml could probably be removed
+    <node name="pupil_utils_jaco_control" pkg="pupil_utils" type="jaco_control" output="screen" cwd="node">
+        <rosparam file="$(find kinova_bringup)/launch/config/robot_parameters.yaml" command="load" />
+        <rosparam file="$(find jaco_control)/config/jaco_gains.yaml" command="load" />
+        <param name="robot_name"    value="$(arg robot_name)" />
+        <param name="robot_type"    value="$(arg robot_type)" />
+        <param name="serial_number" value="$(arg robot_serial)" />
+    </node>
+
+    # convert joint states to TF transforms for rviz, etc
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap  from="/joint_states" to="/$(arg robot_name)/joint_states"/>
+    </node>
+
+    # Load the URDF into the ROS Parameter Server
+    <param name="robot_description"
+        command="$(find xacro)/xacro '--inorder' '$(find kinova_description)/urdf/$(arg robot_name)_standalone.xacro'" />
+
+</launch>

@@ -1,0 +1,32 @@
+<library path="lib/libpupil_utils">
+    <class name="pupil_utils/ColoredDepth" type="pupil_utils::ColoredDepth" base_class_type="nodelet::Nodelet">
+        <description>
+            Implement a colormap into the depth image for better viewing experience
+        </description>
+    </class>
+    <class name="pupil_utils/GazeNodelet" type="pupil_utils::GazeNodelet" base_class_type="nodelet::Nodelet">
+        <description>
+            Gaze viewer for Rviz
+        </description>
+    </class>
+    <class name="pupil_utils/HornTransform" type="pupil_utils::HornTransform" base_class_type="nodelet::Nodelet">
+        <description>
+            Nodelet responsible for the estimation of the camera pose, using rigib body transformation estimation. Horn version.
+        </description>
+    </class>
+    <class name="pupil_utils/P2PNodelet" type="pupil_utils::P2PNodelet" base_class_type="nodelet::Nodelet">
+        <description>
+            Nodelet reponsible for the estimation of the camera pose, using iterative PnP algrithm. OpenCV AruCo Module.
+        </description>
+    </class>
+    <class name="pupil_utils/SingleMarker" type="pupil_utils::SingleMarker" base_class_type="nodelet::Nodelet">
+        <description>
+            Nodelet reponsible for the estimation of the camera pose, using iterative Single Marker Pose estimation algrithm. OpenCV AruCo Module.
+        </description>
+    </class>
+    <class name="pupil_utils/BlinkDetector" type="pupil_utils::BlinkDetector" base_class_type="nodelet::Nodelet">
+        <description>
+            Nodelet Responsible for the blink detection processing the actual image Eye instead of the confidence factor
+        </description>
+    </class>
+</library>

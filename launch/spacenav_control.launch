@@ -1,0 +1,12 @@
+<launch>
+
+    # Include the initialization of the spacenav launch file
+    <node pkg="spacenav_node" type="spacenav_node" name="$(anon spacenav_node)" output="screen">
+        <param name="zero_when_static" value="true"/>
+        <param name="static_count_threshold" value="60"/>   # Dont really understand the internal use of this value, but 60 = 15fps
+    </node>
+
+    # Run the node that controls the Realsense Camera in gazebo
+    <node pkg="pupil_utils" type="spacenav_control" name="spacenav_control_gazebo" respawn="false" output="screen"/>
+
+</launch>
